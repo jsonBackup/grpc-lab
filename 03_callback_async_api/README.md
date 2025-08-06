@@ -25,14 +25,14 @@ make -j 4
 **To run the server:**
 
 ```sh
-./route_guide_server
+./route_guide_callback_server
 Server listening on 0.0.0.0:50051
 ```
 
 **To run the client:**
 
 ```sh
-./route_guide_client
+./route_guide_callback_client
 -------------- GetFeature --------------
 Found feature called Berkshire Valley Management Area Trail, Jefferson, NJ, USA at 40.9146, -74.6189
 Found no feature at 0, 0
