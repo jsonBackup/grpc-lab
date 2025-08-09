@@ -191,4 +191,5 @@ MODULE.bazel.lock
 .dotnet/
 .gnupg/
 .ssh/
+.vscode/
 .vscode-server/
