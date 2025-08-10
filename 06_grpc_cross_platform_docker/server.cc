@@ -5,7 +5,8 @@
 
 class ProcessingImpl : public ProcessingServices::Service {
   ::grpc::Status computeSum(::grpc::ServerContext* context,
-                            const ::Point3* request, ::Numeric* response) {
+                            const ::Point3* request,
+                            ::Numeric* response) override {
     std::cout << "Called" << std::endl;
     response->set_value(request->x() + request->y() + request->z());
     return grpc::Status::OK;
