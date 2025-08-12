@@ -1,5 +1,7 @@
 # gRPC Cross-Platform Docker Example
 
+> This example is based on the YouTube guide: [How to: gRPC in C++](https://www.youtube.com/watch?v=1MuwAZJpqFk)
+
 This example demonstrates how to build and run a gRPC C++ server and a Python client using Docker. The setup allows you to run both components in isolated containers, and also test the service using an API client from the same or another machine.
 
 ## Build and Setup
@@ -72,20 +74,8 @@ docker logs -f grpc-client
 
 You can also run the client from a different machine:
 
-1. **Expose the client port if you want to access client logs or interact with the client container from another machine:**
-    - Add `-p 50051:50051` to the client container:
-      ```sh
-      docker run -d \
-        --net grpc-net \
-        -p 50051:50051 \
-        --name grpc-client \
-        -v .:/root \
-        mygrpc \
-        sh -c "cd /root && python3 -m grpc_tools.protoc -I./protos --python_out=. --pyi_out=. --grpc_python_out=. ./protos/hello.proto && python3 client.py"
-      ```
-
-3. **Update the server address in `client.py`:**
-    - Change the line in `client.py`:
+1. **Update the server address in `client.py`:**
+    - Change the line in [`client.py`](./client.py):
       ```python
       # Change this to the server's IP address if running remotely
       channel = grpc.insecure_channel('grpc-server:50051')
@@ -95,13 +85,14 @@ You can also run the client from a different machine:
       channel = grpc.insecure_channel('192.168.1.25:50051')
       ```
 
-4. **Run the client on your machine after generating the Python gRPC code.**
+2. **Run the client on your machine after generating the Python gRPC code.**
+    - You can use the same instructions as in [Run the Client](#run-the-client).
 
-## Testing with Insomnia or Similar API Clients
+## Testing with API Clients
 
-You can use an API client program like [Insomnia](https://insomnia.rest/) to test your gRPC service from the same machine or another machine.
+You can use an API client program like [Insomnia](https://insomnia.rest/) to test the gRPC service from the same machine or another machine.
 
-- Select your `.proto` file in Insomnia.
+- Select the proto file: [`./protos/hello.proto`](./protos/hello.proto) in Insomnia.
 - Set the request body to:
     ```json
     {
