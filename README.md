@@ -9,3 +9,4 @@ This repository contains a collection of example projects demonstrating gRPC in 
 - [03_hello_world_async](./03_hello_world_async): Demonstrates asynchronous client and server APIs.
 - [04_route_guide_streaming](./04_route_guide_streaming): Shows server-side streaming, client-side streaming, and bidirectional streaming RPCs.
 - [05_route_guide_callback_async](./05_route_guide_callback_async): Demonstrates the callback-based asynchronous API for all RPC types (unary, server/client streaming, bidirectional).
+- [06_grpc_cross_platform_docker](./06_grpc_cross_platform_docker): Cross-platform gRPC demo with C++ server and Python client using Docker.
