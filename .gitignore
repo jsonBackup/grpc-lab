@@ -185,3 +185,11 @@ fuzz-*.log
 # bazel module files
 third_party/**/MODULE.bazel
 MODULE.bazel.lock
+
+# Common hidden folders to ignore
+.cache/
+.dotnet/
+.gnupg/
+.ssh/
+.vscode/
+.vscode-server/
